@@ -1,0 +1,41 @@
+﻿@model CoursePrograms
+
+
+    <div class="card">
+        <h5 class="card-header">Branch : @Model.Branch.BranchName</h5>
+        <div class="card-body">
+            <h5 class="card-title">Course : @Model.Course.CourseName</h5>
+            <p class="card-text">Teacher : @Model.Teacher.TeacherName</p>
+        </div>
+    </div>
+
+    <hr />
+    <br />
+    <h3>Students</h3>
+    <hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Identity Number</th>
+            <th>Student Name</th>
+            <th>Student Surname</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Students != null)
+        {
+            @foreach (var item in Model.Students)
+            {
+                <tr>
+                    <td>@item.IdentityNumber</td>
+                    <td>@item.StudentName</td>
+                    <td>@item.StudentSurname</td>
+                    <td>@item.Phone</td>
+                </tr>
+            }
+        }
+        </tbody>
+</table>
+

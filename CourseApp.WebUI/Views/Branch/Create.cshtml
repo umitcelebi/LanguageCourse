@@ -1,0 +1,33 @@
+﻿@model Branch
+@{
+    ViewData["Title"] = "Create Branch";
+}
+
+@section script
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<hr />
+<div class="alert alert-info">
+    <h2>Create Branch</h2>
+</div>
+<hr />
+<a class="btn btn-dark" asp-controller="Branch" asp-action="List">Back</a>
+
+<form asp-controller="Branch" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="BranchName" class="form-label">Branch Name</label>
+        <input asp-for="BranchName" class="form-control">
+        <div><span class="text-danger" asp-validation-for="BranchName"></span></div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label">Branch Address</label>
+        <input asp-for="Address" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

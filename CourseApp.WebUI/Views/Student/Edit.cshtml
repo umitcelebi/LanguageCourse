@@ -1,0 +1,50 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+@section script
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<hr />
+<div class="alert alert-info">
+    <h2>Edit Student</h2>
+</div>
+<hr />
+
+<form asp-controller="Student" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="StudentId" />
+    <div class="mb-3">
+        <label asp-for="IdentityNumber" class="form-label">Identity Number</label>
+        <input type="text" asp-for="IdentityNumber" class="form-control">
+        <div><span class="text-danger" asp-validation-for="IdentityNumber"></span></div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StudentName" class="form-label">Student Name</label>
+        <input asp-for="StudentName" class="form-control">
+        <div><span class="text-danger" asp-validation-for="StudentName"></span></div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StudentSurname" class="form-label">Student Surname</label>
+        <input asp-for="StudentSurname" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label">Phone</label>
+        <input asp-for="Phone" class="form-control">
+        <div><span class="text-danger" asp-validation-for="Phone"></span></div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Adress" class="form-label">Address</label>
+        <input asp-for="Adress" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

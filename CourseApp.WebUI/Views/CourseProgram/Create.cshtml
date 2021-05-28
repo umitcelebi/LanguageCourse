@@ -1,0 +1,35 @@
+﻿@model CoursePrograms
+@{
+    ViewData["Title"] = "Create Course Program";
+}
+
+<hr />
+<div class="alert alert-info">
+    <h2>Create Course Program</h2>
+</div>
+<hr />
+
+<form asp-controller="CourseProgram" asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label class="col-form-label">Branch</label>
+        <select class="form-control" asp-for="BranchId" asp-items="ViewBag.Branchs">
+            <option disabled>Select Branch</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="col-form-label">Course</label>
+        <select class="form-control" asp-for="CourseId" asp-items="ViewBag.Courses">
+            <option disabled>Select Course</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="col-form-label">Teacher</label>
+        <select class="form-control" asp-for="TeacherId" asp-items="ViewBag.Teachers">
+            <option disabled>Select Teacher</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

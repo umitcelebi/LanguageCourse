@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CoursePrograms>
+
+@{
+    ViewData["Title"] = "Programs";
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mt-3 mr-3">
+            <div class="card" style="width: 18rem;">
+                <img src="~/img/02.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Branch.BranchName</h5>
+                    <p class="card-text">@item.Course.CourseName</p>
+                    <p class="card-text">@item.Teacher.TeacherName</p>
+                    <a asp-controller="CourseProgram"
+                       asp-action="Details"
+                       asp-route-id="@item.CourseProgramsId" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

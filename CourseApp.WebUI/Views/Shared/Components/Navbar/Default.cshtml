@@ -1,0 +1,83 @@
+﻿
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Logo</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navb">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Branchs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var item in ViewBag.Branchs)
+                    {
+                        <a class="dropdown-item" 
+                           asp-controller="CourseProgram"
+                           asp-action="SearchByBranch"
+                           asp-route-id="@item.BranchId">@item.BranchName</a>
+                    }
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item btn btn-info" asp-controller="Branch" asp-action="List">Manage Branchs</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Courses
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var item in ViewBag.Courses)
+                    {
+                        <a class="dropdown-item" 
+                           asp-controller="CourseProgram" 
+                           asp-action="SearchByCourse"
+                           asp-route-id="@item.CourseId">@item.CourseName</a>
+                    }
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item btn btn-info" asp-controller="Course" asp-action="List">Manage Courses</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Teachers
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item btn btn-info" asp-controller="Teacher" asp-action="List">Manage Teachers</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Student
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item btn btn-info" asp-controller="Student" asp-action="List">Manage Student</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Programs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/">Programs</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item btn btn-info" asp-controller="CourseProgram" asp-action="Create">Create Programs</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+        </form>
+    </div>
+</nav>
